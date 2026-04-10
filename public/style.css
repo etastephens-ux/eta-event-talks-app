@@ -222,6 +222,37 @@ body {
   letter-spacing: 0.05em;
 }
 
+/* Category Colors */
+.tag-ai, .tag-quantum, .tag-future {
+  background-color: #0369a1; /* Blue */
+  color: #e0f2fe;
+}
+
+.tag-react, .tag-frontend, .tag-web {
+  background-color: #b45309; /* Amber */
+  color: #fef3c7;
+}
+
+.tag-security, .tag-infrastructure, .tag-cloud {
+  background-color: #be123c; /* Rose */
+  color: #fff1f2;
+}
+
+.tag-microservices, .tag-architecture, .tag-resilience {
+  background-color: #6d28d9; /* Violet */
+  color: #ede9fe;
+}
+
+.tag-engineering, .tag-code-review, .tag-culture {
+  background-color: #334155; /* Slate */
+  color: #f1f5f9;
+}
+
+.tag-break {
+  background-color: #064e3b;
+  color: #d1fae5;
+}
+
 /* Footer */
 .footer {
   text-align: center;

@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (!isBreak) {
         const speakersStr = talk.speakers.join(', ');
-        const tagsHTML = talk.category.map(cat => `<span class="tag">${cat}</span>`).join('');
+        const tagsHTML = talk.category.map(cat => {
+          const className = cat.toLowerCase().replace(/\s+/g, '-');
+          return `<span class="tag tag-${className}">${cat}</span>`;
+        }).join('');
         
         contentHTML += `
           <div class="speakers">By ${speakersStr}</div>
