@@ -1,0 +1,79 @@
+[
+  {
+    "id": 1,
+    "title": "The Future of AI in Software Engineering",
+    "speakers": ["Dr. Alice Smith"],
+    "category": ["AI", "Future", "Engineering"],
+    "duration": "1 hour",
+    "startTime": "10:00",
+    "endTime": "11:00",
+    "description": "Explore the transformative impact of Artificial Intelligence on the software development lifecycle. Dr. Smith will discuss how AI tools are augmenting developer capabilities, automating testing, and reshaping the very nature of coding.",
+    "type": "talk"
+  },
+  {
+    "id": 2,
+    "title": "Building Resilient Microservices",
+    "speakers": ["Bob Johnson", "Charlie Davis"],
+    "category": ["Microservices", "Architecture", "Resilience"],
+    "duration": "1 hour",
+    "startTime": "11:10",
+    "endTime": "12:10",
+    "description": "A deep dive into designing microservices that can withstand failures. This session covers patterns like circuit breakers, bulkheads, and chaos engineering techniques to ensure your distributed systems remain highly available.",
+    "type": "talk"
+  },
+  {
+    "id": 3,
+    "title": "Demystifying Quantum Computing",
+    "speakers": ["Dr. Eve Brown"],
+    "category": ["Quantum", "Computing", "Future"],
+    "duration": "1 hour",
+    "startTime": "12:20",
+    "endTime": "13:20",
+    "description": "Quantum computing is no longer just theoretical physics. Dr. Brown provides an accessible overview of qubits, superposition, and entanglement, and explains what this emerging technology means for the future of cryptography and complex problem-solving.",
+    "type": "talk"
+  },
+  {
+    "id": "lunch",
+    "title": "Lunch Break",
+    "speakers": [],
+    "category": ["Break"],
+    "duration": "1 hour",
+    "startTime": "13:20",
+    "endTime": "14:20",
+    "description": "Enjoy a catered lunch and network with fellow attendees.",
+    "type": "break"
+  },
+  {
+    "id": 4,
+    "title": "Securing Your Cloud Infrastructure",
+    "speakers": ["Frank White"],
+    "category": ["Security", "Cloud", "Infrastructure"],
+    "duration": "1 hour",
+    "startTime": "14:20",
+    "endTime": "15:20",
+    "description": "Learn practical strategies for hardening your cloud environments against modern threats. Frank covers IAM best practices, zero-trust architecture principles, and automated security scanning in CI/CD pipelines.",
+    "type": "talk"
+  },
+  {
+    "id": 5,
+    "title": "Mastering React Server Components",
+    "speakers": ["Grace Taylor", "Harry Wilson"],
+    "category": ["React", "Frontend", "Web"],
+    "duration": "1 hour",
+    "startTime": "15:30",
+    "endTime": "16:30",
+    "description": "React Server Components are revolutionizing how we build web applications. Join Grace and Harry as they demonstrate how to leverage RSCs for improved performance, reduced bundle sizes, and better SEO.",
+    "type": "talk"
+  },
+  {
+    "id": 6,
+    "title": "The Art of Effective Code Reviews",
+    "speakers": ["Ivy Martinez"],
+    "category": ["Code Review", "Engineering", "Culture"],
+    "duration": "1 hour",
+    "startTime": "16:40",
+    "endTime": "17:40",
+    "description": "Code reviews are crucial for quality, but they can often be a source of friction. Ivy shares actionable advice on establishing a positive code review culture, providing constructive feedback, and streamlining the review process.",
+    "type": "talk"
+  }
+]
