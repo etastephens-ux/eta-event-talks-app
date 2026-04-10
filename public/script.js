@@ -6,9 +6,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let allTalks = [];
 
+  // Show skeleton loading state
+  const renderSkeletons = () => {
+    scheduleContainer.innerHTML = '';
+    for (let i = 0; i < 4; i++) {
+      const skeleton = document.createElement('div');
+      skeleton.className = 'card skeleton-card';
+      skeleton.innerHTML = `
+        <div class="time-slot skeleton"></div>
+        <div class="card-content">
+          <div class="title skeleton skeleton-text"></div>
+          <div class="speakers skeleton skeleton-text" style="width: 60%"></div>
+          <div class="description skeleton skeleton-text" style="width: 90%"></div>
+          <div class="categories">
+            <div class="tag skeleton" style="width: 60px"></div>
+            <div class="tag skeleton" style="width: 80px"></div>
+          </div>
+        </div>
+      `;
+      scheduleContainer.appendChild(skeleton);
+    }
+  };
+
   // Fetch talks from the API
   const fetchTalks = async () => {
+    renderSkeletons();
     try {
+      // Add a slight delay to demonstrate skeletons if desired, 
+      // but let's keep it snappy for real use.
       const response = await fetch('/api/talks');
       if (!response.ok) {
         throw new Error('Failed to fetch talks data.');
@@ -17,7 +42,12 @@ document.addEventListener('DOMContentLoaded', () => {
       renderSchedule(allTalks);
     } catch (error) {
       console.error(error);
-      scheduleContainer.innerHTML = '<p class="loading-msg" style="color: #ef4444;">Error loading schedule. Please try again later.</p>';
+      scheduleContainer.innerHTML = `
+        <div class="no-results">
+          <p style="color: #ef4444;">Error loading schedule. Please try again later.</p>
+          <button type="button" class="btn btn-secondary" onclick="location.reload()">Retry</button>
+        </div>
+      `;
     }
   };
 
@@ -26,7 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
     scheduleContainer.innerHTML = ''; // Clear container
 
     if (talks.length === 0) {
-      scheduleContainer.innerHTML = '<p class="no-results">No talks found matching your search.</p>';
+      scheduleContainer.innerHTML = `
+        <div class="no-results">
+          <p>No talks found matching your search.</p>
+          <button type="button" class="btn btn-secondary" id="empty-state-clear-btn">Clear Search</button>
+        </div>
+      `;
+      document.getElementById('empty-state-clear-btn').addEventListener('click', () => clearBtn.click());
       return;
     }
 
@@ -65,9 +101,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  // Handle Search Submission
-  searchForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+  // Handle Search Logic
+  const handleSearch = () => {
     const query = searchInput.value.trim().toLowerCase();
     
     if (query === '') {
@@ -79,8 +114,6 @@ document.addEventListener('DOMContentLoaded', () => {
     clearBtn.classList.remove('hidden');
 
     const filteredTalks = allTalks.filter(talk => {
-      // Breaks are typically not filtered, but we can hide them during search if wanted.
-      // Let's include breaks if they match or just filter talks.
       if (talk.type === 'break') return false; 
       
       const matchesCategory = talk.category.some(cat => cat.toLowerCase().includes(query));
@@ -90,6 +123,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     renderSchedule(filteredTalks);
+  };
+
+  // Event Listeners
+  searchInput.addEventListener('input', handleSearch);
+
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    handleSearch();
   });
 
   // Handle Clear Search
