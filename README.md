@@ -7,3 +7,8 @@ A 1-day immersive technical conference website.
 - Category-based search
 - Responsive design
 - Node.js/Express backend
+
+## Development
+To run locally:
+1. `npm install`
+2. `node server.js`

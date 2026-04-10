@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechTalks 2026</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1>TechTalks 2026</h1>
+      <p>A 1-day immersive technical conference</p>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="search-section">
+      <form id="search-form" class="search-box">
+        <input type="text" id="search-input" placeholder="Search by category (e.g., AI, Web, Cloud)..." aria-label="Search talks by category">
+        <button type="submit" class="btn">Search</button>
+        <button type="button" id="clear-btn" class="btn btn-secondary hidden">Clear</button>
+      </form>
+    </section>
+
+    <section class="schedule-section">
+      <div id="schedule-container" class="schedule-container">
+        <p class="loading-msg">Loading schedule...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 TechTalks Event. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
