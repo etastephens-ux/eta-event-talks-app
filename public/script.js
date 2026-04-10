@@ -80,7 +80,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Let's include breaks if they match or just filter talks.
       if (talk.type === 'break') return false; 
       
-      return talk.category.some(cat => cat.toLowerCase().includes(query));
+      const matchesCategory = talk.category.some(cat => cat.toLowerCase().includes(query));
+      const matchesSpeaker = talk.speakers.some(speaker => speaker.toLowerCase().includes(query));
+      
+      return matchesCategory || matchesSpeaker;
     });
 
     renderSchedule(filteredTalks);
